@@ -1,0 +1,91 @@
+body {
+	text-align: center;
+	margin: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 80%;
+}
+main {
+	display: block;
+	margin: auto;
+}
+section {
+	display: flex;
+	margin: 20vh auto 0;
+	justify-content: center;
+}
+section + section {
+	display: flex;
+	flex-wrap: wrap;
+	/* flex-direction: column; */
+	width: fit-content;
+	justify-content: space-between;
+	text-align: left;
+	width: 10rem;
+}
+input[type='range'] {
+	width: 100%;
+}
+section + section label,
+section + section input:first-of-type {
+	margin: 0 0.25rem;
+}
+.torre {
+	display: flex;
+	flex-direction: column;
+	height: 40vh;
+	width: 100%;
+	justify-content: flex-end;
+	position: relative;
+}
+.pino {
+	display: block;
+	height: 40vh;
+	width: 0.25rem;
+	margin: auto;
+	background-color: darkslategrey;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	z-index: -1;
+}
+.base {
+	display: block;
+	height: 0.25rem;
+	width: 25vw;
+	margin: auto;
+	background-color: darkslategrey;
+	position: absolute;
+	bottom: -0.25rem;
+	left: 5%;
+	z-index: -1;
+}
+[class^='disco'] {
+	background-color: antiquewhite;
+	width: 3rem;
+	height: 1.5rem;
+	margin: -0.03125rem auto;
+	border: solid 0.0625rem burlywood;
+}
+[class$='1'] {
+	width: 3vw;
+}
+[class$='2'] {
+	width: 6vw;
+}
+[class$='3'] {
+	width: 9vw;
+}
+h2 {
+	display: none;
+}
+
+@media only screen and (orientation: portrait) {
+	main,
+	h1 {
+		display: none;
+	}
+	h2 {
+		display: block;
+		margin: 40vh auto;
+	}
+}

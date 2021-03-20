@@ -13,7 +13,7 @@ function breakName() {
 	return (nameArray = nome.value.split(' '));
 }
 
-//Puxa o
+//Puxa o último item do array pro começo, transformado em maiúsculo
 function sortLastName() {
 	breakName();
 	console.log(nameArray);
@@ -23,18 +23,23 @@ function sortLastName() {
 	);
 }
 
+// Abrevia os sobrenomes do meio
 function shortenMiddleName() {
 	breakName();
 	sortLastName();
 
+	//Se o array for maior q 2 itens
 	if (abntArray.length > 2) {
+		// crie um array temporário com o conteúdo do abntArray a partir do item 2
 		const tempArray = abntArray.slice(2, abntArray.length);
+		// Remova os sobrenomes do meio do abntArray
+		abntArray.splice(2);
 
-		abntArray.splice(2, abntArray.length - 2);
 		tempArray.forEach(element => {
+			// pegue o primeiro caractere de cada item dentro do tempArray
 			let abrev = element.charAt();
 
-			//se a string atual for um artigo, não faça nada
+			//se o item atual for um artigo, não faça nada
 			if (
 				element == 'das' ||
 				element == 'do' ||
@@ -44,14 +49,16 @@ function shortenMiddleName() {
 				element == 'e'
 			) {
 			} else {
-				// se for um nome, add a abreviação do nome em caixa alta com um ponto
+				// se for um nome, add a abreviação do nome -- em caixa alta com um ponto-- no fim do abntArray
 				abntArray[abntArray.length] = `${abrev.toUpperCase()}.`;
 			}
 		});
+		// Junte tudo numa string a ser exibida na pagina (declarada no documento 'script.js')
 		result.textContent = abntArray.join(' ');
 	}
 }
 
+// Casos de teste. Ao clicar, inserem um texto pre-definido no input de texto e chamam um evento 'input'
 teste0.addEventListener('click', function () {
 	nome.value = 'Antônio Augusto Ribeiro Pedroza';
 	nome.dispatchEvent(new Event('input'));
@@ -68,6 +75,7 @@ teste2.addEventListener('click', function () {
 
 limpar.addEventListener('click', function () {
 	nome.value = '';
+	nome.dispatchEvent(new Event('input'));
 });
 
 botaoFormatar.addEventListener('click', shortenMiddleName);

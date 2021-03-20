@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Torre de Hanoi</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<h1>Torre de Hanoi</h1>
+		<h2>Hey, vira o celular na horizontal pra poder jogar :)</h2>
+		<main>
+			<section>
+				<div class="torre">
+					<div class="disco__1"></div>
+					<div class="disco__2"></div>
+					<div class="disco__3"></div>
+					<span class="pino"></span>
+					<span class="base"></span>
+				</div>
+				<div class="torre">
+					<span class="pino"></span>
+					<span class="base"></span>
+				</div>
+				<div class="torre">
+					<span class="pino"></span>
+					<span class="base"></span>
+				</div>
+			</section>
+			<section>
+				<label for="rangeDiscos">Discos</label>
+				<input
+					type="number"
+					name="numDiscos"
+					id="inputDiscos"
+					aria-label="numero de discos"
+					min="3"
+					max="8"
+					value="3"
+				/>
+				<input
+					type="range"
+					name="numDiscos"
+					id="rangeDiscos"
+					min="3"
+					max="8"
+					value="3"
+				/>
+			</section>
+		</main>
+		<script src="index.js"></script>
+	</body>
+</html>
