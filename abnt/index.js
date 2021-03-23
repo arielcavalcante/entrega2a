@@ -10,7 +10,7 @@ var abntArray = [];
 
 //Separa o nome inserido na textbox em palavras num array
 function breakName() {
-	return (nameArray = nome.value.split(' '));
+	return (nameArray = nome.value.trim().split(/\s+/).join(' ').split(' '));
 }
 
 //Puxa o último item do array pro começo, transformado em maiúsculo
@@ -73,9 +73,11 @@ teste2.addEventListener('click', function () {
 	nome.dispatchEvent(new Event('input'));
 });
 
+// Ao clicar, inserem uma string vazia no input de texto e chamam um evento 'input'
 limpar.addEventListener('click', function () {
 	nome.value = '';
 	nome.dispatchEvent(new Event('input'));
 });
 
+// chama a função principal ao clicar no botão formatar
 botaoFormatar.addEventListener('click', shortenMiddleName);
